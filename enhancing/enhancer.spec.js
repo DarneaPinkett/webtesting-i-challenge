@@ -22,7 +22,7 @@ describe('enhancement success', () => {
             enhancement: 5,
         })).toEqual({
             name: "itemB",
-            durability: 5,
+            durability: 0,
             enhancement: 6,
         })
     });
@@ -35,6 +35,15 @@ describe('enhancement success', () => {
             name: "itemB",
             durability: 0,
             enhancement: 20,
+        });
+        expect(succeed({
+            name: "itemB",
+            durability: 0,
+            enhancement: 20,
+        })).not.toEqual({
+            name: "itemB",
+            durability: 0,
+            enhancement: 21,
         })
     })
 })
