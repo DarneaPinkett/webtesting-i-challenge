@@ -46,6 +46,42 @@ describe('enhancement success', () => {
             enhancement: 21,
         })
     })
+});
+
+describe('enhancement fails', () => {
+    it('if item enhancement is less than 15, durablilty decreases by 5', () => {
+        expect(fail({
+            name: "itemC",
+            durability: 62,
+            enhancement: 3,
+        })).toEqual({
+            name: "itemC",
+            durability: 57,
+            enhancement: 3,
+        })
+    });
+    it('if item enhancement is 15 or more, durabilty decreases by 10', () => {
+        expect(fail({
+            name: "itemC",
+            durability: 62,
+            enhancement: 18,
+        })).toEqual({
+            name: "itemC",
+            durability: 52,
+            enhancement: 18,
+        })
+    });
+    it('if item enhancement is 16 or more, durability decreases by 10 and enhancement decrease by 1', () => {
+        expect(fail({
+            name: "itemC",
+            durability: 62,
+            enhancement: 16,
+        })).toEqual({
+            name: "itemC",
+            durability: 52,
+            enhancement: 15,
+        })
+    })
 })
 
 // test away!
